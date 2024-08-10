@@ -1,0 +1,44 @@
+
+<h3 class="text-center">Agregar usuario de forma manual</h3>
+<div class="d-flex justify-content-center">
+  <form (submit)="addNewUser(name.value, username.value, email.value, city.value); $event.preventDefault();"  class="d-flex flex-column gap-2">
+    <input type="text" #name name="name" placeholder="Nombre" />
+    <input type="text" #username name="username" placeholder="UserName" required />
+    <input type="email" #email name="email" placeholder="Email" required />
+    <input type="text" #city name="city" placeholder="Country" required />
+    <button type="submit" class="btn btn-primary">Agregar</button>
+  </form>
+</div>
+
+<hr>
+
+<div class="d-flex">
+
+</div>
+
+<div class="row">
+  <div class="col-12">
+
+    <ag-grid-angular
+    class="ag-theme-quartz"
+    style="height: 500px; width: 100%;"
+    [rowData]="userList"
+    [columnDefs]="colDefs"
+    [defaultColDef]="defaultColDef"
+    (gridReady)="onGridReady($event)"
+
+    [rowDragManaged]="true"
+    [gridOptions]="gridOptions"
+    [rowSelection]="rowSelection"
+    />
+    <button
+          (click)="onBtExport()"
+          style="margin-bottom: 5px; font-weight: bold"
+          class="btn mt-2"
+          >
+            Export to Excel
+    </button>
+    <button (click)="addUser()" class="btn btn-success mt-2">Agregar Usuario</button>
+    <button (click)="deleteSelectedRows()" class="btn btn-danger mt-2 ms-2">Borrar Usuario</button>
+  </div>
+  </div>
