@@ -1,1 +1,16 @@
-<p>user-form works!</p>
+<h1 class="title">Api Reqres</h1>
+
+<div class="grid-container">
+  <mat-list role="list" class="grid-item" *ngFor="let item of response">
+    <mat-list-item role="listitem">{{ item.email }}</mat-list-item>
+    <mat-list-item role="listitem">{{ item.first_name }} {{ item.last_name }}</mat-list-item>
+    <img mat-card-image src="{{ item.avatar }}">
+  </mat-list>
+
+</div>
+
+<!-- <p>{{ response | json }}</p>
+
+<div *ngFor="let item of response.data">
+  <p>{{ item.email }}</p>
+</div> -->
