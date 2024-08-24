@@ -1,5 +1,7 @@
 .container-user {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 10px;
   padding: 10px;
 }
@@ -7,4 +9,14 @@
 .avatar-image {
   width: 30px;
   height: 30px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-gap {
+
+  display: flex;
+  gap: 10px;
 }

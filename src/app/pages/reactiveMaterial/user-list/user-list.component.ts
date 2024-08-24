@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { take } from 'rxjs';
 import { data, IUsuario } from 'src/app/models/usuarios';
 import { reqService } from 'src/app/services/req.service';
+import { AddEditUserComponent } from '../add-edit-user/add-edit-user.component';
 
 @Component({
   selector: 'app-user-list',

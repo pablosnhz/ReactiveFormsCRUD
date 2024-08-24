@@ -4,7 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { EditUserComponent } from './pages/reactiveMaterial/edit-user/edit-user.component';
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EditUserComponent } from './pages/reactiveMaterial/edit-user/edit-user.
     AppRoutingModule,
 
     // BrowserAnimationsModule,
-    CommonModule
+    CommonModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

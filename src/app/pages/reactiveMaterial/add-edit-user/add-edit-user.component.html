@@ -1,0 +1,25 @@
+<div mat-dialog-title>
+  <h2>Add user</h2>
+</div>
+<form [formGroup]="userNew" (ngSubmit)="formSubmit()">
+  <div mat-dialog-content>
+    <div class="row">
+      <mat-form-field >
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="first_name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="last_name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button>Cancel</button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </div>
+</form>

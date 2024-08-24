@@ -13,6 +13,13 @@ import { MatTableModule } from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { EditUserComponent } from '../reactiveMaterial/edit-user/edit-user.component';
+import { MatButtonModule } from '@angular/material/button';
+import { AddEditUserComponent } from '../reactiveMaterial/add-edit-user/add-edit-user.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -22,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ UserFormComponent, UserListComponent, EditUserComponent ],
+  declarations: [ UserFormComponent, UserListComponent, EditUserComponent, AddEditUserComponent ],
   imports: [
     CommonModule,
     RouterModule,
@@ -31,9 +38,16 @@ const routes: Routes = [
     MatCardModule,
     MatToolbarModule,
     MatTableModule,
+    MatButtonModule,
 
+    MatDialogModule,
     MatIconModule,
     MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+
+    ReactiveFormsModule,
+
 
     RouterModule.forChild(routes),
   ],

@@ -31,3 +31,19 @@ export class reqService {
   }
 
 }
+
+
+
+
+
+
+
+
+
+// private apiUrlReq = 'https://svc.cartasur.com.ar/api/Dummy';
+
+// constructor(private httpClient: HttpClient) { }
+
+// getUsers(): Observable<any> {
+//   return this.httpClient.get(this.apiUrlReq, { responseType: 'text' });
+// }
