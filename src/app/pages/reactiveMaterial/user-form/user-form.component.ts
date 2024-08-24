@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { take, takeUntil } from 'rxjs';
 import { data, IUsuario } from 'src/app/models/usuarios';
 import { reqService } from 'src/app/services/req.service';
+import { AutoDestroyService } from 'src/app/services/utils/auto-destroy.service';
 
 @Component({
   selector: 'app-user-form',
@@ -10,21 +13,26 @@ import { reqService } from 'src/app/services/req.service';
 })
 export class UserFormComponent implements OnInit{
 
-  response: any;
+  userForm: FormGroup;
 
-  constructor( private serviceReq: reqService ){}
-
-
-  ngOnInit(): void {
-    this.getUsuarios();
+  constructor(private fb: FormBuilder, private serviceReq: reqService, private router: Router, private destroy$: AutoDestroyService ){
+    this.userForm = this.fb.group({
+      first_name: [''],
+      last_name: [''],
+      email: [''],
+    })
   }
 
+  ngOnInit(): void {}
 
-  getUsuarios(): void {
-    this.serviceReq.getUsers().pipe(
+  onSubmit(): void {
+    this.serviceReq.createUser(this.userForm.value).pipe(
       take(1)
     ).subscribe((response: IUsuario) => {
-      this.response = response.data
-    });
+      this.router.navigate(['/users']);
+    })
   }
 }
+
+
+

@@ -1,0 +1,10 @@
+.container-user {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.avatar-image {
+  width: 30px;
+  height: 30px;
+}

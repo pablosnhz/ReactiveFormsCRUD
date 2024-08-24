@@ -15,3 +15,16 @@
 .title {
   text-align: center;
 }
+
+.style-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

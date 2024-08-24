@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { EditUserComponent } from './pages/reactiveMaterial/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [

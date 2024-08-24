@@ -1,16 +1,33 @@
-<h1 class="title">Api Reqres</h1>
 
-<div class="grid-container">
+<mat-toolbar color="primary" class="header">
+  <span>Api Reqres</span>
+  <app-edit-user></app-edit-user>
+</mat-toolbar>
+
+
+
+
+<!-- <div class="grid-container">
   <mat-list role="list" class="grid-item" *ngFor="let item of response">
-    <mat-list-item role="listitem">{{ item.email }}</mat-list-item>
-    <mat-list-item role="listitem">{{ item.first_name }} {{ item.last_name }}</mat-list-item>
-    <img mat-card-image src="{{ item.avatar }}">
+    <mat-list-item role="listitem">Email: {{ item.email }}</mat-list-item>
+    <!-- <mat-list-item role="listitem">{{ item.id }}</mat-list-item> -->
+    <!-- <mat-list-item role="listitem">Name: {{ item.first_name }} {{ item.last_name }}</mat-list-item>
+    <img alt="{{ item.avatar }}" mat-card-image src="{{ item.avatar }}">
+    <mat-list-item role="listitem">
+      <button (click)="deletUserForm(item.id)">Delete</button>
+    </mat-list-item>
   </mat-list>
+</div>  -->
 
-</div>
+<!-- por id -->
+<!-- <div *ngIf="responseUser">
+  <p>{{ responseUser.id }}</p>
+</div> -->
 
-<!-- <p>{{ response | json }}</p>
-
+ <!-- <p>{{ responseUser | json }}</p> -->
+<!--
 <div *ngFor="let item of response.data">
   <p>{{ item.email }}</p>
 </div> -->
+
+<app-user-list></app-user-list>

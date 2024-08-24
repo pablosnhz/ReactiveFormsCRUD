@@ -10,8 +10,24 @@ export class reqService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getUsers(): Observable<IUsuario> {
-    return this.httpClient.get<IUsuario>(`${this.apiUrlReq}?page=${1}`);
-
+  getUsers(page:number): Observable<IUsuario> {
+    return this.httpClient.get<IUsuario>(`${this.apiUrlReq}?page=${page}`);
   }
+
+  getUser(id: number): Observable<IUsuario> {
+    return this.httpClient.get<IUsuario>(`${this.apiUrlReq}/${id}`)
+  }
+
+  createUser( user: IUsuario ): Observable<IUsuario> {
+    return this.httpClient.post<IUsuario>(`${this.apiUrlReq}`, user)
+  }
+
+  updateUser( user: IUsuario, id: number ): Observable<IUsuario> {
+    return this.httpClient.put<IUsuario>(`${this.apiUrlReq}/${id}`, user)
+  }
+
+  deleteUser( id: number ): Observable<IUsuario> {
+    return this.httpClient.delete<IUsuario>(`${this.apiUrlReq}/${id}`)
+  }
+
 }
