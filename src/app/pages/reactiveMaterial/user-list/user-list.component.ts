@@ -14,26 +14,27 @@ import { AddEditUserComponent } from '../add-edit-user/add-edit-user.component';
 export class UserListComponent implements OnInit{
 
   users: data[] = [];
+  userPage: number = 0;
+  totalUsers: number = 0;
 
-  constructor( private serviceReq: reqService ){}
+  constructor( private serviceReq: reqService, private dialog: MatDialog ){}
 
   ngOnInit(): void {
-    const saveDatos = localStorage.getItem('user');
-    if (saveDatos) {
-      this.users = JSON.parse(saveDatos);
-    } else {
-      this.getUsuarios();
-    }
+    // const saveDatos = localStorage.getItem('user');
+    // if (saveDatos) {
+    //   this.users = JSON.parse(saveDatos);
+    // } else {
+    // }
+    this.getUsuarios();
   }
 
-  getUsuarios(): void {
-    this.serviceReq.getUsers(1).pipe(
-      take(1)
-    ).subscribe((response: IUsuario) => {
-      this.users = response.data
-      localStorage.setItem('user', JSON.stringify(this.users))
-    })
+  getUsuarios(page: number = 1): void {
+    this.serviceReq.getUsersPage(page).subscribe((response: IUsuario) => {
+      this.users = response.data;
+      localStorage.setItem('user', JSON.stringify(this.users));
+    });
   }
+
 
   deleteUser( id: number ): void {
     this.serviceReq.deleteUser(id).pipe(
@@ -44,4 +45,15 @@ export class UserListComponent implements OnInit{
     })
   }
 
+  getPage(page: number): void {
+    this.getUsuarios(page + 2);
+  }
+
+
+  // editUsers( user: data ): void {
+  //   const dialogRef = this.dialog.open(AddEditUserComponent, {
+  //     width: '400px',
+  //     data: user
+  //   });
+  // }
 }

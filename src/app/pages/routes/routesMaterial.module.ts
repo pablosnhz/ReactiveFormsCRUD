@@ -19,6 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
@@ -33,6 +35,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
+
     MatListModule,
     MatGridListModule,
     MatCardModule,
@@ -46,8 +50,7 @@ const routes: Routes = [
     MatSelectModule,
     MatInputModule,
 
-    ReactiveFormsModule,
-
+    MatPaginatorModule,
 
     RouterModule.forChild(routes),
   ],

@@ -1,4 +1,4 @@
-.container-user {
+.container-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,4 +19,8 @@
 
   display: flex;
   gap: 10px;
+}
+
+a {
+  text-decoration: none;
 }

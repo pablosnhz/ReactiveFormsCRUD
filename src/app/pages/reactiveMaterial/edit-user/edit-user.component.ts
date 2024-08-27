@@ -11,19 +11,17 @@ import { data } from 'src/app/models/usuarios';
 })
 export class EditUserComponent {
 
-  user: data[] = []
+  users: data[] = [];
 
   constructor(private dialog: MatDialog) {   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddEditUserComponent, {
-      width: '400px',
-    });
+    const dialogRef = this.dialog.open(AddEditUserComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.user.push(result);
-        localStorage.setItem('user', JSON.stringify(this.user));
+        this.users.push(result);
+        localStorage.setItem('user', JSON.stringify(this.users));
       }
     });
   }

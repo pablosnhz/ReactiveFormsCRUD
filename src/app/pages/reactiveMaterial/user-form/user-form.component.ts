@@ -13,25 +13,25 @@ import { AutoDestroyService } from 'src/app/services/utils/auto-destroy.service'
 })
 export class UserFormComponent implements OnInit{
 
-  userForm: FormGroup;
+  // userForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private serviceReq: reqService, private router: Router, private destroy$: AutoDestroyService ){
-    this.userForm = this.fb.group({
-      first_name: [''],
-      last_name: [''],
-      email: [''],
-    })
-  }
+  // constructor(private fb: FormBuilder, private serviceReq: reqService, private router: Router, private destroy$: AutoDestroyService ){
+  //   this.userForm = this.fb.group({
+  //     first_name: [''],
+  //     last_name: [''],
+  //     email: [''],
+  //   })
+  // }
 
   ngOnInit(): void {}
 
-  onSubmit(): void {
-    this.serviceReq.createUser(this.userForm.value).pipe(
-      take(1)
-    ).subscribe((response: IUsuario) => {
-      this.router.navigate(['/users']);
-    })
-  }
+  // onSubmit(): void {
+  //   this.serviceReq.createUser(this.userForm.value).pipe(
+  //     take(1)
+  //   ).subscribe((response: IUsuario) => {
+  //     this.router.navigate(['/users']);
+  //   })
+  // }
 }
 
 

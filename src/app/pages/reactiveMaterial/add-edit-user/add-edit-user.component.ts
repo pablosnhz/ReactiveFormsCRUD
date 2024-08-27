@@ -24,13 +24,10 @@ export class AddEditUserComponent {
 
    formSubmit(){
     const newUser = this.userNew.value;
-    this.reqService.createUser(newUser).pipe(
-      take(1)
-    ).subscribe((user) => {
+    this.reqService.createUser(newUser).subscribe((user) => {
       this.userNew.reset();
-      console.log(user);
-      // localStorage.setItem('user', JSON.stringify(this.userNew.value));
       this.dialogRef.close(user);
+      localStorage.setItem('user', JSON.stringify(this.userNew.value));
     });
   }
 

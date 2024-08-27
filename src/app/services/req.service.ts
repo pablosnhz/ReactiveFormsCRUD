@@ -10,8 +10,14 @@ export class reqService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getUsers(page:number): Observable<IUsuario> {
+  getUsersPage(page:number): Observable<IUsuario> {
     return this.httpClient.get<IUsuario>(`${this.apiUrlReq}?page=${page}`);
+  }
+
+
+  getUsers(): Observable<IUsuario> {
+    return this.httpClient.get<IUsuario>(`${this.apiUrlReq}`);
+
   }
 
   getUser(id: number): Observable<IUsuario> {
