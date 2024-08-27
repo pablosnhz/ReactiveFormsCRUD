@@ -1,0 +1,111 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "first_name": "Eva",
+      "last_name": "Holt",
+      "email": "evaholt@reqres.in",
+      "gender": "female",
+      "hours": "18-23",
+      "id": "72e5"
+    },
+    {
+      "first_name": "Local",
+      "last_name": "Host",
+      "email": "localhost@reqres.in",
+      "gender": "male",
+      "hours": "0-5",
+      "id": "b2f7"
+    },
+    {
+      "id": "3253",
+      "first_name": "Duke",
+      "last_name": "Nuke",
+      "email": "dukenuke@reqres.in",
+      "gender": "male",
+      "hours": "12-17"
+    },
+    {
+      "id": "fa37",
+      "first_name": "Harry ",
+      "last_name": "Potter",
+      "email": "harrypotter@reqres.in",
+      "gender": "male",
+      "hours": "6-11"
+    },
+    {
+      "id": "ac1a",
+      "first_name": "Juan",
+      "last_name": "Roman",
+      "email": "juanroman@reqres.in",
+      "gender": "male",
+      "hours": "6-11"
+    },
+    {
+      "id": "ce67",
+      "first_name": "Martin",
+      "last_name": "Palermo",
+      "email": "martinpalermo@reqres.in",
+      "gender": "male",
+      "hours": "12-17"
+    },
+    {
+      "id": "4fdd",
+      "first_name": "Titi",
+      "last_name": "Henry",
+      "email": "titihenry@reqres.in",
+      "gender": "male",
+      "hours": "12-17"
+    },
+    {
+      "id": "8b6a",
+      "first_name": "Eva",
+      "last_name": "Holt",
+      "email": "evaholt@reqres.in",
+      "gender": "female",
+      "hours": "18-23"
+    },
+    {
+      "id": "bdf0",
+      "first_name": "Local",
+      "last_name": "Hosts",
+      "email": "localhost@reqres.in",
+      "gender": "male",
+      "hours": "0-5"
+    },
+    {
+      "first_name": "Ash",
+      "last_name": "Ketchup",
+      "email": "ashpaletas@reqres.in",
+      "gender": "male",
+      "hours": "12-17",
+      "id": "3817"
+    }
+  ]
+}

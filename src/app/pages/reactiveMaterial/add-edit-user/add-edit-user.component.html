@@ -4,22 +4,35 @@
 <form [formGroup]="userNew" (ngSubmit)="formSubmit()">
   <div mat-dialog-content>
     <div class="row">
-      <mat-form-field >
-        <mat-label>Nombre</mat-label>
-        <input matInput formControlName="first_name">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="first_name" type="text" placeholder="Name">
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Apellido</mat-label>
+        <mat-label>Last Name</mat-label>
         <input matInput formControlName="last_name">
       </mat-form-field>
       <mat-form-field>
         <mat-label>Email</mat-label>
         <input matInput formControlName="email">
       </mat-form-field>
+      <mat-radio-group aria-label="Select an option" formControlName="gender">
+        <mat-label><b>Gender</b></mat-label>
+        <mat-radio-button value="male" color="primary">Male</mat-radio-button>
+        <mat-radio-button value="female" color="primary">Female</mat-radio-button>
+      </mat-radio-group>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Hours per week</mat-label>
+          <mat-select formControlName="hours">
+              <mat-option *ngFor="let item of hours" [value]="item">{{ item }}</mat-option>
+            </mat-select>
+            <mat-hint>Select hours</mat-hint>
+        </mat-form-field>
     </div>
   </div>
-  <div mat-dialog-actions>
+  <div mat-dialog-actions class="action">
     <button mat-raised-button [mat-dialog-close]="false">Cancel</button>
-    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-raised-button color="primary" type="submit">{{ editData ? 'Update' : 'Save' }}</button>
   </div>
 </form>

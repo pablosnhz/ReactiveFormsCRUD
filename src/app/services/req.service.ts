@@ -10,31 +10,46 @@ export class reqService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getUsersPage(page:number): Observable<IUsuario> {
-    return this.httpClient.get<IUsuario>(`${this.apiUrlReq}?page=${page}`);
+  createUserJson(data: any): Observable<any> {
+    return this.httpClient.post(`http://localhost:3000/users`, data);
   }
 
-
-  getUsers(): Observable<IUsuario> {
-    return this.httpClient.get<IUsuario>(`${this.apiUrlReq}`);
-
+  updateUserJson(id: number, data: any): Observable<any> {
+    return this.httpClient.put(`http://localhost:3000/users/${id}`, data);
   }
 
-  getUser(id: number): Observable<IUsuario> {
-    return this.httpClient.get<IUsuario>(`${this.apiUrlReq}/${id}`)
+  getUserJson(): Observable<any>{
+    return this.httpClient.get(`http://localhost:3000/users`);
   }
 
-  createUser( user: IUsuario ): Observable<IUsuario> {
-    return this.httpClient.post<IUsuario>(`${this.apiUrlReq}`, user)
+  deleteUserJson(id: number): Observable<any> {
+    return this.httpClient.delete(`http://localhost:3000/users/${id}`);
   }
 
-  updateUser( user: IUsuario, id: number ): Observable<IUsuario> {
-    return this.httpClient.put<IUsuario>(`${this.apiUrlReq}/${id}`, user)
-  }
+  // getUsersPage(page:number): Observable<IUsuario> {
+  //   return this.httpClient.get<IUsuario>(`${this.apiUrlReq}?page=${page}`);
+  // }
 
-  deleteUser( id: number ): Observable<IUsuario> {
-    return this.httpClient.delete<IUsuario>(`${this.apiUrlReq}/${id}`)
-  }
+  // getUsers(): Observable<IUsuario> {
+  //   return this.httpClient.get<IUsuario>(`${this.apiUrlReq}`);
+
+  // }
+
+  // getUser(id: number): Observable<IUsuario> {
+  //   return this.httpClient.get<IUsuario>(`${this.apiUrlReq}/${id}`)
+  // }
+
+  // createUser( user: IUsuario ): Observable<IUsuario> {
+  //   return this.httpClient.post<IUsuario>(`${this.apiUrlReq}`, user)
+  // }
+
+  // updateUser( user: IUsuario, id: number ): Observable<IUsuario> {
+  //   return this.httpClient.put<IUsuario>(`${this.apiUrlReq}/${id}`, user)
+  // }
+
+  // deleteUser( id: number ): Observable<IUsuario> {
+  //   return this.httpClient.delete<IUsuario>(`${this.apiUrlReq}/${id}`)
+  // }
 
 }
 

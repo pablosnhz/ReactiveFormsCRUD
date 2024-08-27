@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -43,6 +44,8 @@ const routes: Routes = [
     MatToolbarModule,
     MatTableModule,
     MatButtonModule,
+    MatRadioModule,
+
 
     MatDialogModule,
     MatIconModule,
