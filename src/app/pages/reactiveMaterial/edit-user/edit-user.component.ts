@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditUserComponent } from '../add-edit-user/add-edit-user.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { data } from 'src/app/models/usuarios';
+import { data } from 'src/app/core/models/usuarios';
 import { reqService } from 'src/app/services/req.service';
 import { log } from 'firebase-functions/logger';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,7 +16,7 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 
-import { IUsuariojson } from 'src/app/models/userjson';
+import { IUsuariojson } from 'src/app/core/models/userjson';
 import { UserListComponent } from '../user-list/user-list.component';
 
 @Component({

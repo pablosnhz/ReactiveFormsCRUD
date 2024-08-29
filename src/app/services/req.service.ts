@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { data, IUsuario } from '../models/usuarios';
+import { data, IUsuario } from '../core/models/usuarios';
 
 @Injectable({providedIn: 'root'})
 export class reqService {
@@ -24,6 +24,10 @@ export class reqService {
 
   deleteUserJson(id: number): Observable<any> {
     return this.httpClient.delete(`http://localhost:3000/users/${id}`);
+  }
+
+  reqresLogin(email: string, password: string): Observable<any> {
+    return this.httpClient.post(`https://reqres.in/api/login`, {email, password});
   }
 
   // getUsersPage(page:number): Observable<IUsuario> {

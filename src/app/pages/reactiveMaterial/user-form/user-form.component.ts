@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { take, takeUntil } from 'rxjs';
-import { data, IUsuario } from 'src/app/models/usuarios';
+import { data, IUsuario } from 'src/app/core/models/usuarios';
 import { reqService } from 'src/app/services/req.service';
 import { AutoDestroyService } from 'src/app/services/utils/auto-destroy.service';
 
