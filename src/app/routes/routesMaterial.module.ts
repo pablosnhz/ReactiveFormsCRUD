@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { UserFormComponent } from '../reactiveMaterial/user-form/user-form.component';
-import { UserListComponent } from '../reactiveMaterial/user-list/user-list.component';
-import { EditUserComponent } from '../reactiveMaterial/edit-user/edit-user.component';
-import { AddEditUserComponent } from '../reactiveMaterial/add-edit-user/add-edit-user.component';
-import { LoginUserComponent } from '../reactiveMaterial/login-user/login-user.component';
+import { UserFormComponent } from '../pages/reactiveMaterial/user-form/user-form.component';
+import { UserListComponent } from '../pages/reactiveMaterial/user-list/user-list.component';
+import { EditUserComponent } from '../pages/reactiveMaterial/edit-user/edit-user.component';
+import { AddEditUserComponent } from '../pages/reactiveMaterial/add-edit-user/add-edit-user.component';
+import { LoginUserComponent } from '../pages/reactiveMaterial/login-user/login-user.component';
 
 import { AutoDestroyService } from 'src/app/services/utils/auto-destroy.service';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,18 +25,17 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatRadioModule} from '@angular/material/radio';
-import { AuthGuard } from 'src/app/core/guards/login.guard';
-
+import { authGuard } from 'src/app/core/guards/login.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: LoginUserComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'form',
     component: UserFormComponent,
-    // canActivate: [AuthGuard],
     // pathMatch: 'full'
   }
 ];
@@ -56,7 +55,6 @@ const routes: Routes = [
     MatButtonModule,
     MatRadioModule,
 
-
     MatDialogModule,
     MatIconModule,
     MatFormFieldModule,
@@ -67,7 +65,7 @@ const routes: Routes = [
 
     RouterModule.forChild(routes),
   ],
-  providers: [AutoDestroyService],
+  providers: [AutoDestroyService,],
   exports: [RouterModule]
 })
 export class routesMaterialModule { }

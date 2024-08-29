@@ -10,16 +10,20 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       {
-        path: '',
+        path: 'home',
         component: HomeComponent
       },
       {
         path: 'forms',
-        loadChildren: () => import('./pages/routes/routes.module').then(m => m.routesModule)
+        loadChildren: () => import('./routes/routes.module').then(m => m.routesModule)
       },
       {
         path: 'formsmaterial',
-        loadChildren: () => import('./pages/routes/routesMaterial.module').then(m => m.routesMaterialModule)
+        loadChildren: () => import('./routes/routesMaterial.module').then(m => m.routesMaterialModule)
+      },
+      {
+        path: 'formstailwind',
+        loadChildren: () => import('./routes/routesUserTailwind.module').then(m => m.routesTailwindModule)
       }
     ]
   }

@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { IdInterceptor } from './core/interceptor/id.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     NoopAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: IdInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

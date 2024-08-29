@@ -21,6 +21,7 @@ export class AddEditUserComponent implements OnInit{
             ) {
     this.userNew = this.fb.group({
       // id: [''],
+      // para el id tuve que instalar el npm y usar un interceptor... npx json-server db.json
       first_name: [''],
       last_name: [''],
       email: [''],

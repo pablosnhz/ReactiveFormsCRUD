@@ -18,6 +18,7 @@ import {
 
 import { IUsuariojson } from 'src/app/core/models/userjson';
 import { UserListComponent } from '../user-list/user-list.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-user',
@@ -35,7 +36,7 @@ export class EditUserComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private reqService: reqService) {   }
+  constructor(private dialog: MatDialog, private reqService: reqService, private router: Router) {   }
 
   ngOnInit(): void {
     this.getUsers();
@@ -97,6 +98,13 @@ export class EditUserComponent implements OnInit{
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
+    }
+  }
+
+  logout(): void {
+    const token = localStorage.removeItem('token');
+    if(token == null){
+      this.router.navigate(['/formsmaterial']);
     }
   }
 

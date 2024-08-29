@@ -28,84 +28,68 @@
   },
   "users": [
     {
+      "first_name": "Frank",
+      "last_name": "Lampard",
+      "email": "lampard@reqres.in",
+      "gender": "male",
+      "hours": "12-17",
+      "id": 2
+    },
+    {
       "first_name": "Eva",
       "last_name": "Holt",
       "email": "evaholt@reqres.in",
       "gender": "female",
-      "hours": "18-23",
-      "id": "72e5"
+      "hours": "12-17",
+      "id": 1
     },
     {
-      "first_name": "Local",
+      "first_name": "Locals",
       "last_name": "Host",
       "email": "localhost@reqres.in",
       "gender": "male",
-      "hours": "0-5",
-      "id": "b2f7"
+      "hours": "12-17",
+      "id": 3
     },
     {
-      "id": "3253",
-      "first_name": "Duke",
-      "last_name": "Nuke",
-      "email": "dukenuke@reqres.in",
+      "first_name": "Michael",
+      "last_name": "Owen",
+      "email": "michaelowen@reqres.in",
       "gender": "male",
-      "hours": "12-17"
+      "hours": "6-11",
+      "id": 4
     },
     {
-      "id": "fa37",
-      "first_name": "Harry ",
-      "last_name": "Potter",
-      "email": "harrypotter@reqres.in",
-      "gender": "male",
-      "hours": "6-11"
+      "first_name": "Misty",
+      "last_name": "Harrison",
+      "email": "harrison@reqres.in",
+      "gender": "female",
+      "hours": "12-17",
+      "id": 5
     },
     {
-      "id": "ac1a",
       "first_name": "Juan",
       "last_name": "Roman",
-      "email": "juanroman@reqres.in",
-      "gender": "male",
-      "hours": "6-11"
-    },
-    {
-      "id": "ce67",
-      "first_name": "Martin",
-      "last_name": "Palermo",
-      "email": "martinpalermo@reqres.in",
-      "gender": "male",
-      "hours": "12-17"
-    },
-    {
-      "id": "4fdd",
-      "first_name": "Titi",
-      "last_name": "Henry",
-      "email": "titihenry@reqres.in",
-      "gender": "male",
-      "hours": "12-17"
-    },
-    {
-      "id": "8b6a",
-      "first_name": "Eva",
-      "last_name": "Holt",
-      "email": "evaholt@reqres.in",
-      "gender": "female",
-      "hours": "18-23"
-    },
-    {
-      "id": "bdf0",
-      "first_name": "Local",
-      "last_name": "Hosts",
-      "email": "localhost@reqres.in",
-      "gender": "male",
-      "hours": "0-5"
-    },
-    {
-      "first_name": "Ash",
-      "last_name": "Ketchup",
-      "email": "ashpaletas@reqres.in",
+      "email": "riquelme@reqres.in",
       "gender": "male",
       "hours": "12-17",
-      "id": "3817"
+      "id": 6
+    },
+    {
+      "first_name": "Martin",
+      "last_name": "Palermo",
+      "email": "palermo@reqres.in",
+      "gender": "male",
+      "hours": "0-5",
+      "id": 7
+    },
+    {
+      "first_name": "Frank",
+      "last_name": "De Jong",
+      "email": "frank@reqres.in",
+      "gender": "male",
+      "hours": "0-5",
+      "id": 9
     }
   ]
 }
