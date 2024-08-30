@@ -33,15 +33,7 @@
       "email": "lampard@reqres.in",
       "gender": "male",
       "hours": "12-17",
-      "id": 2
-    },
-    {
-      "first_name": "Eva",
-      "last_name": "Holt",
-      "email": "evaholt@reqres.in",
-      "gender": "female",
-      "hours": "12-17",
-      "id": 1
+      "id": "2"
     },
     {
       "first_name": "Locals",
@@ -49,15 +41,15 @@
       "email": "localhost@reqres.in",
       "gender": "male",
       "hours": "12-17",
-      "id": 3
+      "id": "3"
     },
     {
       "first_name": "Michael",
       "last_name": "Owen",
       "email": "michaelowen@reqres.in",
       "gender": "male",
-      "hours": "6-11",
-      "id": 4
+      "hours": "12-17",
+      "id": "4"
     },
     {
       "first_name": "Misty",
@@ -65,7 +57,7 @@
       "email": "harrison@reqres.in",
       "gender": "female",
       "hours": "12-17",
-      "id": 5
+      "id": "5"
     },
     {
       "first_name": "Juan",
@@ -73,7 +65,7 @@
       "email": "riquelme@reqres.in",
       "gender": "male",
       "hours": "12-17",
-      "id": 6
+      "id": "6"
     },
     {
       "first_name": "Martin",
@@ -81,15 +73,23 @@
       "email": "palermo@reqres.in",
       "gender": "male",
       "hours": "0-5",
-      "id": 7
+      "id": "7"
     },
     {
       "first_name": "Frank",
       "last_name": "De Jong",
       "email": "frank@reqres.in",
       "gender": "male",
+      "hours": "12-17",
+      "id": "9"
+    },
+    {
+      "first_name": "Aves",
+      "last_name": "Truz",
+      "email": "truz@reqres.in",
+      "gender": "male",
       "hours": "0-5",
-      "id": 9
+      "id": 1
     }
   ]
 }

@@ -1,5 +1,7 @@
 <mat-toolbar color="primary" class="header">
-  <span>Reactive Material</span>
+  <a [routerLink]="['/home']">
+    <span>Reactive Material</span>
+  </a>
   <span class="example-spacer"></span>
   <div class="example-gap">
     <button mat-raised-button (click)="openDialog()" >

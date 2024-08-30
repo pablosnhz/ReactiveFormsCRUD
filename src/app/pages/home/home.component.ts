@@ -16,7 +16,7 @@ export class HomeComponent {
     if(token){
       this.router.navigate(['formsmaterial', 'form']);
     } else {
-      this.router.navigate(['home']);
+      this.router.navigate(['formsmaterial']);
     }
 }
 }
