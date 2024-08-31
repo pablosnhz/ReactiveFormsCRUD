@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { IdInterceptor } from './core/interceptor/id.interceptor';
+import { FormsUsersTailwindComponent } from './pages/reactiveTailwind/forms-users-tailwind/forms-users-tailwind.component';
 
 
 @NgModule({

@@ -10,12 +10,29 @@
   padding: 0;
 }
 
-
 body {
-  margin: 0 auto;
-  height: 100dvh;
+  /* margin: 0 auto; */
+  /* height: 100dvh; */
   font-family: "Inter", sans-serif;
   color-scheme: light dark;
   padding: 2em;
-  max-width: 1600px;
+  max-width: 100%;
+  background-color: #010305;
+}
+
+.altura {
+  height: 89vh
+}
+
+button {
+  cursor: pointer;
+  background-color: #012b73;
+}
+
+button:hover {
+  background-color: #012b73;
+}
+
+header button {
+  background-color: #29303d;
 }
