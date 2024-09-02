@@ -3,12 +3,17 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { LoginTailwindComponent } from "../pages/reactiveTailwind/login-tailwind/login-tailwind.component";
 import { FormsUsersTailwindComponent } from "../pages/reactiveTailwind/forms-users-tailwind/forms-users-tailwind.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserModule } from "@angular/platform-browser";
+import { authGuard } from "../core/guards/login.guard";
 
 
 export const routes: Routes = [
   {
     path: '',
     component: LoginTailwindComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'formtailwinduser',
@@ -22,6 +27,9 @@ export const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     RouterModule.forChild(routes),
   ],

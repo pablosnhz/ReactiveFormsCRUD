@@ -1,7 +1,4 @@
-
-
 <body>
-
   <header class="flex flex-wrap justify-between items-center">
     <div class="flex gap-2">
       <p class="text-3xl text-white">Tailwind Form</p>
@@ -14,17 +11,37 @@
     </button>
   </header>
 
-  <div class="flex items-center justify-center altura">
-    <div class="border rounded-3 p-4 bg-white">
+  <form [formGroup]="formUsers" class="flex items-center justify-center altura" (ngSubmit)="submitLogin()">
+    <div class="border rounded-3 p-5 bg-white">
       <p class="text-2xl font-bold text-black mb-3">Login</p>
-      <form action="" class="d-flex flex-column text-black p-2 gap-3">
+      <div class="d-flex flex-column text-black p-2 gap-3">
         <p>Username</p>
-        <input type="text" placeholder="Username" class="border rounded-3 bg-white p-2">
+        <input type="text" placeholder="Username" class="border rounded-3 bg-white p-2" formControlName="username" autocomplete="user">
+        <div *ngIf="formUsers.get('username')?.invalid && formUsers.get('password')?.touched" class="flex items-center p-1 mb-1 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
+          <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+          </svg>
+          <span class="sr-only">Info</span>
+          <div>
+            <span class="font-medium">El email es obligatorio</span>
+          </div>
+        </div>
+        <p class="text-black text-xs mb-3 p-2">eve.holt&#64;reqres.in</p>
         <p>Password</p>
-        <input type="text" placeholder="Password" class="border rounded-3 bg-white p-2">
-        <button type="submit" class="btn border p-2 text-white cursor-pointer" [routerLink]="['formtailwinduser']">Login</button>
-      </form>
+        <input type="password" placeholder="Password" class="border rounded-3 bg-white p-2" formControlName="password" autocomplete="password">
+        <div *ngIf="formUsers.get('password')?.invalid && formUsers.get('password')?.touched " class="flex items-center p-1 mb-1 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
+          <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+          </svg>
+          <span class="sr-only">Info</span>
+          <div>
+            <span class="font-medium">La contraseña debe tener minimo 6 caracteres</span>
+          </div>
+        </div>
+        <button type="submit" class="btn border p-2 text-white cursor-pointer">Login</button>
+      </div>
     </div>
-  </div>
+  </form>
 </body>
-<!-- flex items-center justify-center h-screen -->
+
+

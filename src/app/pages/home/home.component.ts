@@ -18,5 +18,15 @@ export class HomeComponent {
     } else {
       this.router.navigate(['formsmaterial']);
     }
-}
+  }
+
+  goToFormsTailwindHome(){
+    const token = localStorage.getItem('token');
+
+    if(token){
+      this.router.navigate(['formstailwind', 'formtailwinduser']);
+    } else {
+      this.router.navigate(['formstailwind']);
+    }
+  }
 }
