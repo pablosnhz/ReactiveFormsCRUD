@@ -1,4 +1,8 @@
 <body >
+<!--
+  <h1 class="text-white">
+    {{ userData | json }}
+  </h1> -->
 
   <header class="text-white flex justify-between mb-4 flex-wrap">
     <a [routerLink]="['/home']">
@@ -8,65 +12,68 @@
     <button class="text-white bg-blue-400 rounded-md px-3 font-bold" type="button" (click)="logOutTailwind()">
       LogOut
     </button>
-    <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-blue-400 rounded-md px-4 font-bold" type="button">
+    <button (click)="openModal()" class="text-white bg-blue-400 rounded-md px-4 font-bold" type="button">
       Add User
     </button>
 
 <!-- Main modal -->
-<div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-5 max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Add new user
-                </h3>
-                <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
+<div *ngIf="isModalOpen" id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-y-auto bg-black bg-opacity-50">
+  <div class="relative p-5 max-h-full">
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Add new user
+        </h3>
+        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" (click)="closeModal()">
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
             <div class="p-4 md:p-5">
-                <form class="space-y-4" action="#">
+                <form class="space-y-4" [formGroup]="userForm" (ngSubmit)="sendSubmit()">
                     <div class="flex gap-2">
                     <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="First Name"/>
+                        <label for="firstName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
+                        <input type="text" name="firstName" formControlName="first_name" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="First Name"/>
                     </div>
                     <div>
-                      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
-                      <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Last Name"/>
+                      <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+                      <input type="text" name="lastName" formControlName="last_name" id="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Last Name"/>
                     </div>
                   </div>
                     <div>
                       <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                      <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Email"/>
+                      <input type="email" name="email" formControlName="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Email"/>
                     </div>
-                    <div class="flex gap-2 text-black">
-                        <label for="password" class="block text-sm font-medium">Gender</label>
-                        <input type="radio" />
-                        <label>Male</label>
-                        <input type="radio"/>
-                        <label>Female</label>
+
+                    <div class="flex gap-2 text-black" >
+                        <p class="block text-sm font-medium">Gender</p>
+                        <div class="flex items-center">
+                          <input checked id="default-radio-2" type="radio" value="male" formControlName="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                          <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
+                        </div>
+
+                        <div class="flex items-center">
+                          <input checked id="default-radio-2" type="radio" value="female" formControlName="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                          <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
+                        </div>
                     </div>
 
                     <div class="max-w-sm mx-auto">
-                      <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a hours</label>
-                      <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      <label for="hours" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a hours</label>
+                      <select id="hours" formControlName="hours" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected>Choose a hours</option>
-                        <option value="US">0-5</option>
-                        <option value="CA">6-11</option>
-                        <option value="FR">12-17</option>
-                        <option value="DE">18-23</option>
+                        <option value="0-5">0-5</option>
+                        <option value="6-11">6-11</option>
+                        <option value="12-17">12-17</option>
+                        <option value="18-23">18-23</option>
                       </select>
                     </div>
 
                     <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add new user</button>
-                </form>
+                  </form>
             </div>
         </div>
     </div>
@@ -109,26 +116,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-[#1f2a38] border-b text-white dark:bg-gray-800 dark:border-gray-700">
+            <tr *ngFor="let item of userData" class="bg-[#1f2a38] border-b text-white dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-semibold whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
+                    {{ item.id }}
                 </th>
                 <td class="px-6 py-4">
-                    Silver
+                    {{ item.first_name }}
                 </td>
                 <td class="px-6 py-4">
-                    Laptop
+                    {{ item.last_name }}
                 </td>
                 <td class="px-6 py-4">
-                    $2999
+                    {{ item.email }}
                 </td>
                 <td class="px-6 py-4">
-                  $2999
+                    {{ item.gender }}
                 </td>
                 <td class="px-6 py-4">
-                  $2999
+                    {{ item.hours }}
                 </td>
                 <td class="px-6 py-4 flex">
+
+                <button type="button" (click)="editData()" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
                   <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -137,8 +146,9 @@
                       <path d="M16 5l3 3" />
                     </svg>
                   </a>
+                </button>
 
-                  <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700" type="button">
+                  <button (click)="deleteUsers(item.id)" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700" type="button">
                     <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
