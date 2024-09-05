@@ -23,11 +23,11 @@ import { IdInterceptor } from './core/interceptor/id.interceptor';
     NoopAnimationsModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: IdInterceptor,
-      multi: true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: IdInterceptor,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })
