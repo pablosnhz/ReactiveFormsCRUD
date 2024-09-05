@@ -29,11 +29,59 @@
   "users": [
     {
       "first_name": "Rio",
-      "last_name": "Totti",
+      "last_name": "Ferdinand",
       "email": "ferdinand@reqres.in",
       "gender": "male",
+      "hours": "0-5",
+      "id": 6
+    },
+    {
+      "first_name": "Zlatan",
+      "last_name": "Ibrahimovic",
+      "email": "ibra@reqres.in",
+      "gender": "male",
       "hours": "6-11",
-      "id": 5
+      "id": 10
+    },
+    {
+      "first_name": "Paul",
+      "last_name": "Scholes",
+      "email": "scholes@reqres.in",
+      "gender": "male",
+      "hours": "12-17",
+      "id": 12
+    },
+    {
+      "first_name": "Juan",
+      "last_name": "Roman",
+      "email": "riquelme@reqres.in",
+      "gender": "male",
+      "hours": "0-5",
+      "id": 13
+    },
+    {
+      "first_name": "Martin",
+      "last_name": "Palermo",
+      "email": "palermo@reqres.in",
+      "gender": "male",
+      "hours": "12-17",
+      "id": 14
+    },
+    {
+      "first_name": "Paulo",
+      "last_name": "Dybala",
+      "email": "dybala@reqres.in",
+      "gender": "male",
+      "hours": "6-11",
+      "id": 17
+    },
+    {
+      "first_name": "Fabio",
+      "last_name": "Cannavaro",
+      "email": "cannavaro@reqres.in",
+      "gender": "male",
+      "hours": "12-17",
+      "id": 18
     }
   ]
 }

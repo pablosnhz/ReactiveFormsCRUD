@@ -12,9 +12,13 @@ import { IUsuariojson } from 'src/app/core/models/userjson';
 export class FormsUsersTailwindComponent implements OnInit {
 
   userForm: FormGroup;
-  userData: any[] = [];
+  userData: IUsuariojson[] = [];
   isModalOpen: boolean = false;
   showModal: boolean = false;
+  userId: number | null = null;
+
+  p: number = 1;
+  collection: any[] = [];
 
   constructor( private router: Router, private usersService: UsersService, private fb: FormBuilder ){
     this.userForm = this.fb.group({
@@ -37,18 +41,44 @@ export class FormsUsersTailwindComponent implements OnInit {
     });
   }
 
-  sendSubmit(){
-    // console.log(this.userForm.value);
-    if(this.userForm.valid){
-      this.usersService.addUser(this.userForm.value).subscribe(() => {
-        this.getUsers();
-        this.userForm.reset();
-        this.isModalOpen = false;
-      })
+  // this.userData.forEach((user) => {
+  //   this.userForm.patchValue(user);
+  // })
+
+  sendSubmit(): void {
+    if (this.userForm.valid) {
+      if (this.userId !== null) {
+        this.usersService.editUser(this.userForm.value, this.userId).subscribe(() => {
+          this.getUsers();
+          this.closeModal();
+        });
+      } else {
+        this.usersService.addUser(this.userForm.value).subscribe(() => {
+          this.getUsers();
+          this.userForm.reset();
+          this.closeModal();
+        });
+      }
     }
   }
 
-  openModal() {
+searchUser(event: Event): void {
+  const value = (event.target as HTMLInputElement).value;
+  this.usersService.getUser().subscribe((res) => {
+    this.userData = res.filter((user: IUsuariojson) =>
+      user.first_name.toLowerCase().includes(value) ||
+      user.last_name.toLowerCase().includes(value));
+  });
+}
+
+  openModal(user?: IUsuariojson): void {
+    if (user) {
+      this.userId = user.id;
+      this.userForm.patchValue(user);
+    } else {
+      this.userForm.reset();
+      this.userId = null;
+    }
     this.isModalOpen = true;
   }
 
@@ -56,23 +86,21 @@ export class FormsUsersTailwindComponent implements OnInit {
     this.isModalOpen = false;
   }
 
-  toggleModal() {
+  // tuve problemas con el modal que no reconocia el id al abrirse, borraba siempre el ultimo de la lista
+  toggleModal(id?: number): void {
+    this.userId = id ?? null;
     this.showModal = !this.showModal;
   }
 
-  // editData(): void {
-  //   this.usersService.editUser(this.userForm.value, this.userForm.value.id).subscribe((user) => {
-
-  //   })
-  // }
-
-  deleteUsers(id: number): void {
-    this.usersService.deleteUser(id).subscribe(() => {
-      this.getUsers();
-      this.userForm.reset();
-      this.showModal = false;
-    })
+  deleteUsers(id: number | null): void {
+    if (id !== null) {
+      this.usersService.deleteUser(id).subscribe(() => {
+        this.getUsers();
+        this.showModal = false;
+      });
+    }
   }
+
 
   logOutTailwind(): void {
     const token = localStorage.removeItem('token');
