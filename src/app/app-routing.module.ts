@@ -26,6 +26,10 @@ const routes: Routes = [
         loadChildren: () => import('./routes/routesUserTailwind.module').then(m => m.routesTailwindModule)
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
 ];
 

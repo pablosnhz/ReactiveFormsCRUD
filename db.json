@@ -28,22 +28,6 @@
   },
   "users": [
     {
-      "first_name": "Rio",
-      "last_name": "Ferdinand",
-      "email": "ferdinand@reqres.in",
-      "gender": "male",
-      "hours": "0-5",
-      "id": 6
-    },
-    {
-      "first_name": "Zlatan",
-      "last_name": "Ibrahimovic",
-      "email": "ibra@reqres.in",
-      "gender": "male",
-      "hours": "6-11",
-      "id": 10
-    },
-    {
       "first_name": "Paul",
       "last_name": "Scholes",
       "email": "scholes@reqres.in",
@@ -56,15 +40,15 @@
       "last_name": "Roman",
       "email": "riquelme@reqres.in",
       "gender": "male",
-      "hours": "0-5",
+      "hours": "18-23",
       "id": 13
     },
     {
       "first_name": "Martin",
       "last_name": "Palermo",
-      "email": "palermo@reqres.in",
+      "email": "palermomartin@reqres.in",
       "gender": "male",
-      "hours": "12-17",
+      "hours": "18-23",
       "id": 14
     },
     {
@@ -82,6 +66,14 @@
       "gender": "male",
       "hours": "12-17",
       "id": 18
+    },
+    {
+      "first_name": "Paolo",
+      "last_name": "Maldini",
+      "email": "maldini@reqres.in",
+      "gender": "male",
+      "hours": "6-11",
+      "id": 19
     }
   ]
 }

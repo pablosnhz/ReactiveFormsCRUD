@@ -5,7 +5,7 @@ import { LoginTailwindComponent } from "../pages/reactiveTailwind/login-tailwind
 import { FormsUsersTailwindComponent } from "../pages/reactiveTailwind/forms-users-tailwind/forms-users-tailwind.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { authGuard } from "../core/guards/login.guard";
+import { AuthGuard } from "../core/guards/login.guard";
 import { NgxPaginationModule } from "ngx-pagination";
 
 
@@ -13,11 +13,11 @@ export const routes: Routes = [
   {
     path: '',
     component: LoginTailwindComponent,
-    canActivate: [authGuard],
   },
   {
     path: 'formtailwinduser',
-    component: FormsUsersTailwindComponent
+    component: FormsUsersTailwindComponent,
+    canActivate: [AuthGuard],
   }
 ]
 

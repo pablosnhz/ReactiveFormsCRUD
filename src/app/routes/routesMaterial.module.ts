@@ -25,17 +25,17 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatRadioModule} from '@angular/material/radio';
-import { authGuard } from 'src/app/core/guards/login.guard';
+import { AuthGuard } from 'src/app/core/guards/login.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: LoginUserComponent,
-    canActivate: [authGuard],
   },
   {
     path: 'form',
     component: UserFormComponent,
+    canActivate: [AuthGuard],
     // pathMatch: 'full'
   }
 ];
